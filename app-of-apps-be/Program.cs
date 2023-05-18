@@ -13,6 +13,15 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<LibraryDbContext>(options =>
             options.UseNpgsql(builder.Configuration.GetConnectionString("Default")));
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: "cors",
+                      builder =>
+                      {
+                          builder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin(); // insecure, use only for demo
+                      });
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -23,6 +32,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseCors("cors");
 
 app.UseAuthorization();
 
