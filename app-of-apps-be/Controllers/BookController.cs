@@ -41,7 +41,7 @@ namespace app_of_apps_be.Controllers
             _context.Books.Add(book);
             _context.SaveChanges();
 
-            return CreatedAtAction(nameof(GetBook), new { id = book.Id }, book);
+            return CreatedAtAction(nameof(GetBook), new { id = book.id }, book);
         }
 
         [HttpPut("{id}")]
@@ -53,8 +53,8 @@ namespace app_of_apps_be.Controllers
                 return NotFound();
             }
 
-            book.Title = updatedBook.Title;
-            book.Author = updatedBook.Author;
+            book.title = updatedBook.title;
+            book.author = updatedBook.author;
 
             _context.SaveChanges();
 

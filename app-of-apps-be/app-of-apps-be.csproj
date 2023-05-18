@@ -30,4 +30,7 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Compile>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="..\.editorconfig" />
+  </ItemGroup>
 </Project>
