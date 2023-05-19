@@ -12,7 +12,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<LibraryDbContext>(options =>
             options.UseNpgsql(builder.Configuration.GetConnectionString("Default")));
-
+builder.Services.AddHealthChecks();
 builder.Services.AddCors(options =>
 {
     options.AddPolicy(name: "cors",
@@ -34,6 +34,8 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseCors("cors");
+
+app.UseHealthChecks("/health");
 
 app.UseAuthorization();
 
