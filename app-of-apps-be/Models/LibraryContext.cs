@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using app_of_apps_be.Models;
+using System.Collections.Generic;
 
 namespace app_of_apps_be.Models
 {
@@ -10,11 +11,11 @@ namespace app_of_apps_be.Models
         {
         }
 
+        public DbSet<Book> Books { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-        modelBuilder.HasDefaultSchema("public");
+        
         }
-
-        public DbSet<Book> Books { get; set; }
-  }
+    }
 }
