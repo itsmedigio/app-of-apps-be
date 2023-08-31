@@ -1,5 +1,7 @@
 # app-of-apps-be
 
-Backend for experimenting with the App of Apps pattern
-prova
-ss
+Sample Backend App for experimenting with the App of Apps pattern
+
+Expected result after creating app in ArgoCD:
+
+![alt text](sample.png)
