@@ -65,11 +65,12 @@ namespace app_of_apps_be.Controllers
         public IActionResult DeleteBook(int id)
         {
             var book = _context.Books.Find(id);
+            // Sample comment line to see what happens with ArgoCD
             if (book == null)
             {
                 return NotFound();
             }
-
+            Console.WriteLine("Hello!");
             _context.Books.Remove(book);
             _context.SaveChanges();
 
